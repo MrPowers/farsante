@@ -1,14 +1,14 @@
 [tool.poetry]
 name = "farsante"
 version = "0.1.0"
-description = ""
+description = "Fake DataFrame generators for Pandas and PySpark"
 authors = ["MrPowers <matthewkevinpowers@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.6.1"
 mimesis = "^4.0.0"
-pyspark = "^3.0.0"
-pandas = "^1.1.0"
+pyspark = ">=2.0.0"
+pandas = ">=1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
