@@ -18,4 +18,12 @@ def quick_pyspark_df(cols, num_rows, spark = SparkSession.builder.getOrCreate())
     return spark.createDataFrame(data, cols)
 
 
+def pyspark_df(funs, num_rows, spark = SparkSession.builder.getOrCreate()):
+    def functions():
+        return tuple(map(lambda f: f(), funs))
+    cols = list(map(lambda f: f.__name__, funs))
+    data = []
+    for _ in itertools.repeat(None, num_rows):
+        data.append(functions())
+    return spark.createDataFrame(data, cols)
 

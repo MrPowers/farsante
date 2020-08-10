@@ -18,7 +18,17 @@ df.show()
 ```
 
 ```
-
++----------+---------+
+|first_name|last_name|
++----------+---------+
+|     Tommy|     Hess|
+|    Arthur| Melendez|
+|  Clemente|    Blair|
+|    Wesley|   Conrad|
+|    Willis|   Dunlap|
+|     Bruna|  Sellers|
+|     Tonda| Schwartz|
++----------+---------+
 ```
 
 Here's how to create a DataFrame with 5 rows of data with first names and last names using Mexican Spanish.
@@ -34,7 +44,15 @@ df.show()
 ```
 
 ```
-
++-----------+---------+
+| first_name|last_name|
++-----------+---------+
+|     Connie|    Xicoy|
+|  Oliverios|   Merino|
+|     Castel|    Yáñez|
+|Guillelmina|   Prieto|
+|     Gezane|   Campos|
++-----------+---------+
 ```
 
 ## Pandas

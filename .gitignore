@@ -1,1 +1,15 @@
+build/
+dist/
 farsante.egg-info/
+.cache/
+tmp/
+.idea/
+.DS_Store
+
+.coverage*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+.pytest_cache/
