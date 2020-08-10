@@ -8,7 +8,7 @@ Fake Pandas / PySpark DataFrame creator.
 
 ## PySpark
 
-Here's how to quickly create a 7 row DataFrame with `fake_first_name` and `fake_last_name` fields.
+Here's how to quickly create a 7 row DataFrame with `first_name` and `last_name` fields.
 
 ```python
 import farsante
@@ -57,5 +57,41 @@ df.show()
 
 ## Pandas
 
+Here's how to quickly create a 3 row DataFrame with `first_name` and `last_name` fields.
 
+```python
+import farsante
+
+df = farsante.quick_pandas_df(['first_name', 'last_name'], 3)
+print(df)
+```
+
+```
+  first_name last_name
+0       Toby   Rosales
+1      Gregg    Hughes
+2    Terence       Ray
+```
+
+Here's how to create a 5 row DataFrame with first names and last names using Russian.
+
+```python
+from mimesis import Person
+ru = Person('ru')
+df = farsante.pandas_df([ru.first_name, ru.last_name], 5)
+print(df)
+```
+
+```
+  first_name   last_name
+0      Амиль  Ханженкова
+1  Славентий  Голумидова
+2    Паладин   Волосиков
+3       Акша    Бабашова
+4       Ника    Синусова
+```
+
+## Fake files
+
+Here's how to create a CSV file with 
 
