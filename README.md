@@ -93,5 +93,25 @@ print(df)
 
 ## Fake files
 
-Here's how to create a CSV file with 
+Here's how to create a CSV file with some fake data:
+
+```python
+import farsante
+from mimesis import Person
+from mimesis import Address
+from mimesis import Datetime
+
+person = Person()
+address = Address()
+datetime = Datetime()
+df = farsante.pandas_df([person.full_name, person.email, address.city, address.state, datetime.datetime], 3)
+df.to_csv('./tmp/fake_data.csv', index=False)
+```
+
+Here's how to create a Parquet file with fake data:
+
+```python
+df = farsante.pandas_df([person.full_name, person.email, address.city, address.state, datetime.datetime], 3)
+df.to_parquet('./tmp/fake_data.parquet', index=False)
+```
 

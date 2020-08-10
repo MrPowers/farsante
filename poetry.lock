@@ -132,6 +132,17 @@ version = "0.10.9"
 
 [[package]]
 category = "dev"
+description = "Python library for Apache Arrow"
+name = "pyarrow"
+optional = false
+python-versions = ">=3.5"
+version = "1.0.0"
+
+[package.dependencies]
+numpy = ">=1.14"
+
+[[package]]
+category = "dev"
 description = "Python parsing module"
 name = "pyparsing"
 optional = false
@@ -229,7 +240,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "06f7f2490289edc71a947aa1f0aa9bdbba9142fe4db85fd56c4fc60dd3cdf395"
+content-hash = "3fe062dd686518427108268f9ad75670b75165e48ce1a4a0aba9e3779962d9ea"
 python-versions = ">=3.6.1"
 
 [metadata.files]
@@ -318,6 +329,28 @@ py = [
 py4j = [
     {file = "py4j-0.10.9-py2.py3-none-any.whl", hash = "sha256:859ba728a7bb43e9c2bf058832759fb97a598bb28cc12f34f5fc4abdec08ede6"},
     {file = "py4j-0.10.9.tar.gz", hash = "sha256:36ec57f43ff8ced260a18aa9a4e46c3500a730cac8860e259cbaa546c2b9db2f"},
+]
+pyarrow = [
+    {file = "pyarrow-1.0.0-cp35-cp35m-macosx_10_9_intel.whl", hash = "sha256:b0a5b9490f22a4dfe116c5a7505c243dce4fe55039bf678491ec5c90aa64dfa0"},
+    {file = "pyarrow-1.0.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:102ad13fe783a20adb1018b2dda3409b3dbb6ed5e69071421b82c5340fe6f2ed"},
+    {file = "pyarrow-1.0.0-cp35-cp35m-manylinux2010_x86_64.whl", hash = "sha256:e6293aa8b0c1c7cdb980580b16af7e40f5d0acbdffe367c3aa6509c98b188650"},
+    {file = "pyarrow-1.0.0-cp35-cp35m-manylinux2014_x86_64.whl", hash = "sha256:8bcbccc103b485d6b871ce139dadf6aa0daa3b254bc628acc2b4607109dccccb"},
+    {file = "pyarrow-1.0.0-cp35-cp35m-win_amd64.whl", hash = "sha256:a0b7dcb72d9670de1a6da397c9903d6819a82677a05ff1dd3790c3277fccb584"},
+    {file = "pyarrow-1.0.0-cp36-cp36m-macosx_10_9_intel.whl", hash = "sha256:f1f01a6d7d0e8a05f0515fb0dd0a71e444d1de3634d45bbc70decd02652f6491"},
+    {file = "pyarrow-1.0.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:00c169f72b060f399db00b8dba81354f2b4c7545f3ef13c4d89a204d5db4c4b0"},
+    {file = "pyarrow-1.0.0-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:e57f172124063d324821611c32089d825262de73a3a77de20dc8ecfa66939b08"},
+    {file = "pyarrow-1.0.0-cp36-cp36m-manylinux2014_x86_64.whl", hash = "sha256:52de1830ca6a3dfd4f3acbb6574316a10cf42a5c26828718f532a178d09248b4"},
+    {file = "pyarrow-1.0.0-cp36-cp36m-win_amd64.whl", hash = "sha256:0c145a407e2bd9e7efb5f8a537411241efcc3165f69cc5564040fcdeb20c41c3"},
+    {file = "pyarrow-1.0.0-cp37-cp37m-macosx_10_9_intel.whl", hash = "sha256:351f95876c5e8908203f3fb833a7f6ddeda452b73e2d4bb8d2034e904000ef52"},
+    {file = "pyarrow-1.0.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:1e9ed98a1b215d046763c2d1a12408a2aea4bc28d54a22fa528674be99b293c1"},
+    {file = "pyarrow-1.0.0-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:0f2519e5c0c300e3c8414e3dc41d0fb42406e1c8333ac4b32196004572f1cd8d"},
+    {file = "pyarrow-1.0.0-cp37-cp37m-manylinux2014_x86_64.whl", hash = "sha256:62d3d06daea7faa25f9319ae6c22991c3bbea0c7df4054dc18cf7239bb75c691"},
+    {file = "pyarrow-1.0.0-cp37-cp37m-win_amd64.whl", hash = "sha256:142d4cb8eaeb432422d21c02395547d32a332386ee00b76254641073b6acef6c"},
+    {file = "pyarrow-1.0.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:4b1222003c8dd3e0c5063af5cddec7ad329071eb14067a5c3c6d83e131b3d18b"},
+    {file = "pyarrow-1.0.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:aed94ad4034984fc9a527e27a7035df2805cd17e3bc17befb86dd138f667055c"},
+    {file = "pyarrow-1.0.0-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:5c8fd00e72ccf76de75beaf4c413f25d9516610b23090c74be4fc871e570cf22"},
+    {file = "pyarrow-1.0.0-cp38-cp38-manylinux2014_x86_64.whl", hash = "sha256:affc0731016dd74d13b040e76d983eb45f1870df231f0f61b3fe44988cdbb44c"},
+    {file = "pyarrow-1.0.0-cp38-cp38-win_amd64.whl", hash = "sha256:f0a0439890f8d11afca36e756747877d864e1cbd774dd7f75ba3e871719fa5e6"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
