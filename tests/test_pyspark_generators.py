@@ -15,4 +15,3 @@ def test_pyspark_df(spark):
     # df.show()
     assert df.count() == 5
 
-
