@@ -115,3 +115,5 @@ df = farsante.pandas_df([person.full_name, person.email, address.city, address.s
 df.to_parquet('./tmp/fake_data.parquet', index=False)
 ```
 
+
+
