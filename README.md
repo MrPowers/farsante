@@ -1,6 +1,6 @@
 # farsante
 
-Fake Pandas / PySpark DataFrame creator.
+Fake Pandas / PySpark / Dask DataFrame creator.
 
 ## Install
 
@@ -91,6 +91,10 @@ print(df)
 4       Ника    Синусова
 ```
 
+## Dask
+
+
+
 ## Fake files
 
 Here's how to create a CSV file with some fake data:
@@ -114,6 +118,4 @@ Here's how to create a Parquet file with fake data:
 df = farsante.pandas_df([person.full_name, person.email, address.city, address.state, datetime.datetime], 3)
 df.to_parquet('./tmp/fake_data.parquet', index=False)
 ```
-
-
 

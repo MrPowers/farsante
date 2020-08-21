@@ -9,6 +9,7 @@ python = ">=3.6.1"
 mimesis = "^4.0.0"
 pyspark = ">=2.0.0"
 pandas = ">=1.0.0"
+dask = {extras = ["dataframe"], version = "^2.23.0"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
