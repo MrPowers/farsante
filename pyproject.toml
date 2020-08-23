@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "farsante"
-version = "0.1.0"
+version = "0.2.0"
 description = "Fake DataFrame generators for Pandas and PySpark"
 authors = ["MrPowers <matthewkevinpowers@gmail.com>"]
 
