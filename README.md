@@ -1,6 +1,6 @@
 # farsante
 
-Fake Pandas / PySpark / Dask DataFrame creator.
+Fake Pandas / PySpark DataFrame creator.
 
 ## Install
 
@@ -90,10 +90,6 @@ print(df)
 3       Акша    Бабашова
 4       Ника    Синусова
 ```
-
-## Dask
-
-
 
 ## Fake files
 

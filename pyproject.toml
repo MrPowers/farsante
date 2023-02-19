@@ -5,15 +5,14 @@ description = "Fake DataFrame generators for Pandas and PySpark"
 authors = ["MrPowers <matthewkevinpowers@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.6.1"
-mimesis = "^4.0.0"
-pyspark = ">=2.0.0"
+python = ">=3.8 <4.0"
+mimesis = "6.0.0"
+pyspark = "3.3.1"
 pandas = ">=1.0.0"
-dask = {extras = ["dataframe"], version = "^2.23.0"}
+pyarrow = "11.0.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
-pyarrow = "^1.0.0"
+pytest = "7.2.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
