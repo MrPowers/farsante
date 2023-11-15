@@ -22,7 +22,6 @@ def pretty_sci(n: int) -> str:
         raise ValueError("Unexpected value following e")
 
 
-# TODO: come back to this - focus on verifying n arguments, file names
 def generate_dataset(n: int, k: int, nas: int, seed: int, ds_type: str) -> None:
     output_names = {
         "groupby": "G1_{n}_{n}_{k}_{nas}.csv",
