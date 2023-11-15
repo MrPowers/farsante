@@ -3,14 +3,12 @@ mod helpers;
 
 use crate::generators::{GroupByGenerator, RowGenerator};
 use crate::helpers::generate_csv;
-use crate::helpers::pretty_sci;
 
 use kdam::{tqdm, BarExt};
 use pyo3::prelude::*;
 
 #[pyfunction]
-fn generate_groupby_csv(n: u64, k: u64, nas: u8, seed: u64) -> () {
-    let output_name = format!("G1_{}_{}_{}_{}.csv", pretty_sci(n), pretty_sci(n), k, nas);
+fn generate_groupby_csv(output_name: String, n: u64, k: u64, nas: u8, seed: u64) -> () {
     let mut pb = tqdm!(total = n as usize, position = 0);
     pb.set_postfix(format!("{}", output_name));
     let _ = pb.refresh();
