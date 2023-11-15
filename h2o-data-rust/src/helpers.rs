@@ -38,7 +38,7 @@ pub fn generate_csv(
     // initialize an instance of rowgenerator depending on the ds_type
     let mut generator: Box<dyn RowGenerator> = match ds_type {
         DsType::GroupBy => Box::new(GroupByGenerator::new(n, k, nas, seed)),
-        DsType::JoinBig => Box::new(JoinGeneratorBig::new(n, k, nas, seed)),
+        DsType::JoinBig => Box::new(JoinGeneratorBig::new(n, k, 0, seed)),
         DsType::JoinBigNa => Box::new(JoinGeneratorBig::new(n, k, nas, seed)),
         DsType::JoinMedium => Box::new(JoinGeneratorMedium::new(n, k, nas, seed)),
         DsType::JoinSmall => Box::new(JoinGeneratorSmall::new(n, k, nas, seed)),
@@ -52,15 +52,13 @@ pub fn generate_csv(
         DsType::JoinSmall => 1_000_000,
     };
 
-    // let bar_position = match ds_type {
-    //     DsType::GroupBy => 0,
-    //     DsType::JoinBig => 1,
-    //     DsType::JoinBigNa => 2,
-    //     DsType::JoinMedium => 3,
-    //     DsType::JoinSmall => 4,
-    // };
-
-    let bar_position = 0;
+    let bar_position = match ds_type {
+        DsType::GroupBy => 0,
+        DsType::JoinBig => 1,
+        DsType::JoinBigNa => 2,
+        DsType::JoinMedium => 3,
+        DsType::JoinSmall => 4,
+    };
 
     let n_rows = n / n_divisor;
     let mut pb = tqdm!(total = n_rows as usize, position = bar_position);
