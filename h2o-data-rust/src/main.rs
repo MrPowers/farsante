@@ -4,14 +4,10 @@ mod helpers;
 use std::thread;
 
 use clap::Parser;
-use generators::JoinGeneratorMedium;
-use kdam::{tqdm, BarExt};
-
-use crate::generators::{GroupByGenerator, JoinGeneratorBig, JoinGeneratorSmall, RowGenerator};
 
 use crate::helpers::generate_csv;
 use crate::helpers::pretty_sci;
-
+use crate::helpers::DsType;
 /// H2O benchmark data generator. See https://github.com/h2oai/db-benchmark/tree/master/_data for details.
 /// Generate four datasets. G1_1e7_1e2_0.csv - groupby dataset (1e7 points, 1e2 keys);
 /// J1_1e7_1e7_NA.csv - big join dataset (1e7 points);
@@ -49,17 +45,15 @@ fn main() {
             args.k,
             args.nas
         );
-        let mut pb = tqdm!(total = args.n as usize, position = 0);
-        pb.set_postfix(format!("{}", output_name));
-        let _ = pb.refresh();
         generate_csv(
-            &mut GroupByGenerator::new(args.n, args.k, args.nas, args.seed),
-            &output_name,
-            &mut pb,
+            output_name,
             args.n,
+            args.k,
+            args.nas,
+            args.seed,
+            &DsType::GroupBy,
         );
     });
-
     let _joinbig_gen = thread::spawn(move || {
         let output_name = format!(
             "J1_{}_{}_{}.csv",
@@ -67,14 +61,13 @@ fn main() {
             pretty_sci(args.n),
             "NA",
         );
-        let mut pb = tqdm!(total = args.n as usize, position = 1);
-        pb.set_postfix(format!("{}", output_name));
-        let _ = pb.refresh();
         generate_csv(
-            &mut JoinGeneratorBig::new(args.n, args.k, 0, args.seed),
-            &output_name,
-            &mut pb,
+            output_name,
             args.n,
+            args.k,
+            args.nas,
+            args.seed,
+            &DsType::JoinBig,
         );
     });
 
@@ -85,14 +78,13 @@ fn main() {
             pretty_sci(args.n),
             args.nas,
         );
-        let mut pb = tqdm!(total = args.n as usize, position = 2);
-        pb.set_postfix(format!("{}", output_name));
-        let _ = pb.refresh();
         generate_csv(
-            &mut JoinGeneratorBig::new(args.n, args.k, args.nas, args.seed),
-            &output_name,
-            &mut pb,
+            output_name,
             args.n,
+            args.k,
+            args.nas,
+            args.seed,
+            &DsType::JoinBigNa,
         );
     });
 
@@ -103,14 +95,13 @@ fn main() {
             pretty_sci(args.n / 1_000_000),
             args.nas,
         );
-        let mut pb = tqdm!(total = args.n as usize / 1_000_000, position = 3);
-        pb.set_postfix(format!("{}", output_name));
-        let _ = pb.refresh();
         generate_csv(
-            &mut JoinGeneratorSmall::new(args.n, args.k, args.nas, args.seed),
-            &output_name,
-            &mut pb,
-            args.n / 1_000_000,
+            output_name,
+            args.n,
+            args.k,
+            args.nas,
+            args.seed,
+            &DsType::JoinSmall,
         );
     });
 
@@ -121,14 +112,13 @@ fn main() {
             pretty_sci(args.n / 1_000),
             args.nas,
         );
-        let mut pb = tqdm!(total = args.n as usize / 1_000, position = 4);
-        pb.set_postfix(format!("{}", output_name));
-        let _ = pb.refresh();
         generate_csv(
-            &mut JoinGeneratorMedium::new(args.n, args.k, args.nas, args.seed),
-            &output_name,
-            &mut pb,
-            args.n / 1_000,
+            output_name,
+            args.n,
+            args.k,
+            args.nas,
+            args.seed,
+            &DsType::JoinMedium,
         );
     });
 
