@@ -137,11 +137,11 @@ To generate these datasets in python:
 from farsante import generate_h2o_dataset
 
 generate_h2o_dataset(
+    ds_type="join_big",
     n=10_000_000,
     k=10,
     nas=10,
     seed=10,
-    ds_type="join_big",
 )
 ```
 
