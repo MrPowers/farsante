@@ -22,7 +22,7 @@ def pretty_sci(n: int) -> str:
         raise ValueError("Unexpected value following e")
 
 
-def generate_dataset(n: int, k: int, nas: int, seed: int, ds_type: str) -> None:
+def generate_h2o_dataset(ds_type: str, n: int, k: int, nas: int, seed: int) -> None:
     output_names = {
         "groupby": "G1_{n}_{n}_{k}_{nas}.csv",
         "join_big": "J1_{n}_{n}_NA.csv",
@@ -53,12 +53,3 @@ def generate_dataset(n: int, k: int, nas: int, seed: int, ds_type: str) -> None:
         seed=seed,
         ds_type=ds_type,
     )
-
-
-generate_dataset(
-    n=10_000_000,
-    k=10,
-    nas=10,
-    seed=10,
-    ds_type="groupby",
-)
