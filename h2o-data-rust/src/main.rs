@@ -61,14 +61,7 @@ fn main() {
             pretty_sci(args.n),
             "NA",
         );
-        generate_csv(
-            output_name,
-            args.n,
-            args.k,
-            args.nas,
-            args.seed,
-            &DsType::JoinBig,
-        );
+        generate_csv(output_name, args.n, args.k, 0, args.seed, &DsType::JoinBig);
     });
 
     let _joinbig_na_gen = thread::spawn(move || {
