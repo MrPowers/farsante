@@ -7,11 +7,9 @@ edition = "2021"
 name = "h2o_data_rust_lib"
 crate-type = ["cdylib"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 clap = { version = "4.4.7", features = ["derive"] }
 kdam = { version = "0.5.0" }
 rand = { version = "0.8.5" }
 rand_chacha = { version = "0.3.1" }
-pyo3 = { version = "0.14.4", features = ["extension-module"] }
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
