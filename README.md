@@ -129,9 +129,9 @@ The following datasets are currently supported:
 | join_medium | n / 1000| 5 | 4 id cols, 1 float col | optional |
 | join_small | n / 1_000_000 | 4 | 3 id cols, 1 float col | optional |
 
-To generate these datasets in python:
+### Python
 
-1. Use the `generate_h2o_dataset()` function in `farsante.h2o_dataset_create` to create one of the above datasets.
+To create one of the above datasets, use the `generate_h2o_dataset()` function in `farsante.h2o_dataset_create`
 
 ```python
 from farsante import generate_h2o_dataset
@@ -145,13 +145,20 @@ generate_h2o_dataset(
 )
 ```
 
+To create all of the above datasets in parallel, use the `h2o_dataset_create_all.py` script
+
+```bash
+python h2o_dataset_create_all.py --n 10000000 --k 10 --nas 10 --seed 42
+```
+
+### Rust
+
 To generate these datasets in rust:
 
 1. Install rust
 2. Install cargo
 3. Install the rust dependencies: `cargo install --path .`
 4. Run the rust program: `cargo run --release -- --help` to see run options
-
 
 ```bash
 cargo run --release -- --n 10000000 --k 10 --nas 10 --seed 42
