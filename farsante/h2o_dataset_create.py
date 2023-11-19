@@ -1,4 +1,4 @@
-from h2o_data_rust import generate_csv_py
+from h2o import generate_csv_py
 from concurrent.futures import ProcessPoolExecutor
 from itertools import repeat
 
@@ -69,7 +69,3 @@ def generate_all_h2o_datasets(n: int, k: int, nas: int, seed: int) -> None:
             repeat(nas),
             repeat(seed),
         )
-
-
-if __name__ == "__main__":
-    generate_all_h2o_datasets(n=10_000_000, k=10, nas=10, seed=42)
