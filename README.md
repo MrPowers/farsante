@@ -115,3 +115,44 @@ df = farsante.pandas_df([person.full_name, person.email, address.city, address.s
 df.to_parquet('./tmp/fake_data.parquet', index=False)
 ```
 
+## h2o dataset creation
+
+[h2o](https://github.com/h2oai/db-benchmark/) is a popular library to benchmark data processing engines. Farsante uses rust to generate h2o datasets.
+
+The following datasets are currently supported:
+
+|name | rows | cols | cols types | nulls |
+|-----|------|------|------------|-------|
+| groupby | n | 9 | 6 id cols, 2 int cols, 1 float col | optional |
+| join_big | n | 7 | 6 id cols, 1 float col | no |
+| join_big_na | n | 7 | 6 id cols, 1 float col | optional |
+| join_medium | n / 1000| 5 | 4 id cols, 1 float col | optional |
+| join_small | n / 1_000_000 | 4 | 3 id cols, 1 float col | optional |
+
+To generate these datasets in python:
+
+1. Use the `generate_h2o_dataset()` function in `farsante.h2o_dataset_create` to create one of the above datasets.
+
+```python
+from farsante import generate_h2o_dataset
+
+generate_h2o_dataset(
+    ds_type="join_big",
+    n=10_000_000,
+    k=10,
+    nas=10,
+    seed=10,
+)
+```
+
+To generate these datasets in rust:
+
+1. Install rust
+2. Install cargo
+3. Install the rust dependencies: `cargo install --path .`
+4. Run the rust program: `cargo run --release -- --help` to see run options
+
+
+```bash
+cargo run --release -- --n 10000000 --k 10 --nas 10 --seed 42
+```
