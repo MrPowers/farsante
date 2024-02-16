@@ -4,7 +4,7 @@ from mimesis import Person
 from typing import Optional
 
 
-def quick_pyspark_df(cols, num_rows, spark: Optional[SparkSession]):
+def quick_pyspark_df(cols, num_rows, spark: Optional[SparkSession] = None):
     if spark is None:
         spark = SparkSession.builder.getOrCreate()
     # valid_cols = ['first_name', 'last_name']
@@ -21,7 +21,7 @@ def quick_pyspark_df(cols, num_rows, spark: Optional[SparkSession]):
     return spark.createDataFrame(data, cols)
 
 
-def pyspark_df(funs, num_rows, spark=Optional[SparkSession]):
+def pyspark_df(funs, num_rows, spark: Optional[SparkSession] = None):
     if spark is None:
         spark = SparkSession.builder.getOrCreate()
 

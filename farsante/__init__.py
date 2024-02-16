@@ -1,3 +1,3 @@
 from farsante.pyspark_generators import quick_pyspark_df, pyspark_df
-from pandas_generators import quick_pandas_df, pandas_df
+from farsante.pandas_generators import quick_pandas_df, pandas_df
 from farsante.h2o_dataset_create import generate_h2o_dataset, generate_all_h2o_datasets
