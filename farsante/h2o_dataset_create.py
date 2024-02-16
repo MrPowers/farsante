@@ -1,4 +1,6 @@
-from h2o_data_rust import generate_csv_py
+from h2o import generate_csv_py
+from concurrent.futures import ProcessPoolExecutor
+from itertools import repeat
 
 
 def pretty_sci(n: int) -> str:
@@ -44,7 +46,7 @@ def generate_h2o_dataset(ds_type: str, n: int, k: int, nas: int, seed: int) -> N
     output_name = output_names[ds_type].format(
         n=pretty_sci(n), n_divided=pretty_sci(n_divided), k=k, nas=nas
     )
-    print(output_name)
+
     generate_csv_py(
         output_name=output_name,
         n=n,
@@ -53,3 +55,17 @@ def generate_h2o_dataset(ds_type: str, n: int, k: int, nas: int, seed: int) -> N
         seed=seed,
         ds_type=ds_type,
     )
+
+
+def generate_all_h2o_datasets(n: int, k: int, nas: int, seed: int) -> None:
+    datasets = ["groupby", "join_big", "join_big_na", "join_small", "join_medium"]
+
+    with ProcessPoolExecutor() as executor:
+        executor.map(
+            generate_h2o_dataset,
+            datasets,
+            repeat(n),
+            repeat(k),
+            repeat(nas),
+            repeat(seed),
+        )

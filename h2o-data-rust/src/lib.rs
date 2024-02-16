@@ -24,7 +24,7 @@ fn hello_rust() -> () {
 }
 
 #[pymodule]
-fn h2o_data_rust(_py: Python, m: &PyModule) -> PyResult<()> {
+fn h2o(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(generate_csv_py, m)?)?;
     m.add_function(wrap_pyfunction!(hello_rust, m)?)?;
     Ok(())
