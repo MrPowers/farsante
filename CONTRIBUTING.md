@@ -46,7 +46,6 @@ install required dependencies
 
 ```bash
 poetry install
-poetry install
 ```
 
 install optional dev dependencies
@@ -57,14 +56,14 @@ poetry install --with dev
 
 Now that you have a virtualenv installed with all of the required dependencies, you can run scripts (like unit tests)
 
-using a poetry shell
+using `poetry shell`
 
 ```bash
 poetry shell
 pytest tests/
 ```
 
-or with poetry run
+or with `poetry run`
 
 ```bash
 poetry run pytest tests/
