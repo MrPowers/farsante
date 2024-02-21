@@ -163,3 +163,7 @@ To generate these datasets in rust:
 ```bash
 cargo run --release -- --n 10000000 --k 10 --nas 10 --seed 42
 ```
+
+## Contributing
+
+If you would like to help make Farsante better, take a look at our [Contributing Guide](CONTRIBUTING.md).
