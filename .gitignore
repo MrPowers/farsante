@@ -6,6 +6,11 @@ tmp/
 .idea/
 .DS_Store
 
+*.csv
+
+!tests/test_files/**
+
+
 .coverage*
 
 # Byte-compiled / optimized / DLL files
@@ -14,5 +19,4 @@ __pycache__/
 
 .pytest_cache/
 
-*.csv
 **/target
