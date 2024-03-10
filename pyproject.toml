@@ -24,5 +24,5 @@ test = ["pytest >= 7.2"]
 features = ["pyo3/extension-module"]
 python-source = "python"
 python-packages = ["farsante"]
-module-name = "farsante_rs"
+module-name = "farsante.farsante_rs"
 bindings = "pyo3"

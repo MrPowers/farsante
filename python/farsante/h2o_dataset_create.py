@@ -1,7 +1,7 @@
 from concurrent.futures import ProcessPoolExecutor
 from itertools import repeat
 
-from farsante_rs import generate_csv_py
+from farsante.farsante_rs import generate_csv_py
 
 
 def pretty_sci(n: int) -> str:
