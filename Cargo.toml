@@ -1,10 +1,10 @@
 [package]
-name = "h2o_data_rust"
+name = "farsante"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "h2o"
+name = "farsante"
 crate-type = ["cdylib"]
 
 [dependencies]

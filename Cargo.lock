@@ -131,6 +131,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "farsante"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "kdam",
+ "pyo3",
+ "rand",
+ "rand_chacha",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -139,17 +150,6 @@ dependencies = [
  "cfg-if",
  "libc",
  "wasi",
-]
-
-[[package]]
-name = "h2o_data_rust"
-version = "0.1.0"
-dependencies = [
- "clap",
- "kdam",
- "pyo3",
- "rand",
- "rand_chacha",
 ]
 
 [[package]]

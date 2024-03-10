@@ -24,6 +24,7 @@ fn hello_rust() -> () {
 }
 
 #[pymodule]
+#[pyo3(name = "farsante_rs")]
 fn h2o(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(generate_csv_py, m)?)?;
     m.add_function(wrap_pyfunction!(hello_rust, m)?)?;
