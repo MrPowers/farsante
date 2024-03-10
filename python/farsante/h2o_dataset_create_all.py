@@ -1,5 +1,6 @@
-from farsante import generate_all_h2o_datasets
 import argparse
+
+from farsante import generate_all_h2o_datasets
 
 
 def main():

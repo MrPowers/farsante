@@ -16,3 +16,6 @@ __pycache__/
 
 *.csv
 **/target
+
+.env
+.venv
