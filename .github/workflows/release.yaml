@@ -1,19 +1,36 @@
 name: Build release
 
 on:
+  push:
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-versions: ["3.9", "3.10", "3.11"]
+      
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
+      - name: Setup Python ${{ matrxi.python-version }}
+        uses: actions/setuppython@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
       - name: Maturin build
         uses: PyO3/maturin-action@v1
         with:
           command: build
-          args: --release
+          args: --release --strip --no-sdist --interpreter python{{ matrix.python-version }}
+
+      - name: Upload wheel
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-{{ matrix.python-version }}-wheels
+          path: target/wheels/*whl
       
